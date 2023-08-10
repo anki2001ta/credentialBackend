@@ -173,8 +173,8 @@ const postIssuedCredentials = async (req, res) => {
     const createIndividual = await issuedCredentialsModel.create({
       ...req.body,
     });
+    console.log(req.body.userEmail,"req.body.userEmail")
     sendCertificateGenerateEmail(req.body.userEmail);
-
     res.status(200).send(createIndividual);
   } catch (error) {
     console.log(error);
